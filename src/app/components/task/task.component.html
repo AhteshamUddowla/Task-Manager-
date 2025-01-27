@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-auto">Task Manager</a>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="onBtnClick()">
+        Add Task
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="row mt-5">
+    <!-- <div class="col-1"></div> -->
+    <div class="col-6 ms-2">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of taskList">
+                @if(item.completed){
+                    <div class="d-flex align-items-center justify-content-between">
+                        <del>{{ item.title }}</del>
+                        <div class="ms-3 d-flex align-items-center">
+                          <input type="checkbox" [checked]="item.completed" (change)="onTaskChecked(item)" class="me-2">
+                          <button type="button" class="btn btn-danger" (click)="onDelete(item)">Delete Task</button>
+                        </div>
+                      </div>
+                      <br>
+                      <span>{{ item.description }}</span>
+                }@else {
+                    <span class="d-flex align-items-center justify-content-between">
+                        <span>{{ item.title }}</span>
+                        <div class="ms-3 d-flex align-items-center">
+                          <input type="checkbox" [checked]="item.completed" (change)="onTaskChecked(item)" class="me-2">
+                          <button type="button" class="btn btn-danger" (click)="onDelete(item)">Delete Task</button>
+                        </div>
+                    </span>
+                    <br>
+                    <span>{{ item.description }}</span> 
+                }
+            </li>
+        </ul>        
+    </div>
+    <div class="col-5">
+        <app-add-task (newItemEvent)="addNewTask($event)" *ngIf="renderAddTaskComponent"> </app-add-task>
+    </div>
+</div>
