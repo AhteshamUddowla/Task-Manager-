@@ -1,5 +1,7 @@
 # TaskManager
 
+<img width="959" alt="Screenshot 2025-01-28 102430" src="https://github.com/user-attachments/assets/1e5ce7eb-0d7b-4ce6-a7fc-902da708a23a" />
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
 ## Development server
